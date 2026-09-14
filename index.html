@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b1a" />
+    <title>Ловец звёзд</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">МИНИ-ИГРА</p>
+          <h1>Ловец звёзд</h1>
+        </div>
+        <button id="soundButton" class="icon-button" type="button" aria-label="Выключить звук">♪</button>
+      </header>
+
+      <section class="stats" aria-label="Счёт игры">
+        <div><span>Счёт</span><strong id="score">0</strong></div>
+        <div><span>Рекорд</span><strong id="bestScore">0</strong></div>
+        <div><span>Время</span><strong><span id="time">30</span>с</strong></div>
+      </section>
+
+      <section id="arena" class="arena" aria-label="Игровое поле">
+        <div class="stars" aria-hidden="true"></div>
+        <button id="target" class="target" type="button" aria-label="Поймать звезду">★</button>
+
+        <div id="startScreen" class="overlay">
+          <div class="planet" aria-hidden="true"></div>
+          <p>Поймай как можно больше звёзд за 30 секунд.</p>
+          <button id="startButton" class="primary-button" type="button">Начать игру</button>
+        </div>
+
+        <div id="endScreen" class="overlay hidden">
+          <p class="eyebrow">РАУНД ЗАВЕРШЁН</p>
+          <h2><span id="finalScore">0</span> звёзд</h2>
+          <p id="resultMessage">Отличный полёт!</p>
+          <button id="restartButton" class="primary-button" type="button">Играть ещё</button>
+        </div>
+      </section>
+
+      <p class="hint">Нажимай на звезду — она будет ускоряться.</p>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
