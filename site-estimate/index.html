@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Интерактивный калькулятор предварительной стоимости сайта.">
+    <meta name="theme-color" content="#07111f">
+    <title>Site Estimate — калькулятор стоимости сайта</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="intro">
+            <a class="brand" href="#calculator" aria-label="Site Estimate — к калькулятору">
+                <span class="brand-mark">SE</span>
+                <span>Site Estimate</span>
+            </a>
+            <p class="eyebrow">ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР</p>
+            <h1>Узнайте примерную стоимость сайта за минуту</h1>
+            <p class="lead">Выберите формат проекта и нужные функции. Расчёт обновится автоматически и покажет понятную разбивку.</p>
+        </header>
+
+        <section id="calculator" class="calculator" aria-label="Калькулятор стоимости сайта">
+            <form id="estimate-form" class="panel form-panel">
+                <div class="field-group">
+                    <label for="site-type">Тип проекта</label>
+                    <select id="site-type" name="siteType">
+                        <option value="landing">Лендинг</option>
+                        <option value="business">Сайт компании</option>
+                        <option value="catalog">Каталог услуг или товаров</option>
+                        <option value="webapp">Веб-приложение</option>
+                    </select>
+                </div>
+
+                <div class="field-group">
+                    <div class="field-heading">
+                        <label for="pages">Количество страниц</label>
+                        <output id="pages-value" for="pages">1</output>
+                    </div>
+                    <input id="pages" name="pages" type="range" min="1" max="20" value="1">
+                    <div class="range-labels" aria-hidden="true"><span>1</span><span>20</span></div>
+                </div>
+
+                <fieldset class="field-group">
+                    <legend>Дополнительные функции</legend>
+                    <label class="option">
+                        <input type="checkbox" name="feature" value="form">
+                        <span><strong>Форма заявки</strong><small>Проверка полей и удобная отправка</small></span>
+                        <b>+ 600 ₽</b>
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="feature" value="animation">
+                        <span><strong>Анимации</strong><small>Плавное появление и интерактивные состояния</small></span>
+                        <b>+ 800 ₽</b>
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="feature" value="cms">
+                        <span><strong>Редактирование контента</strong><small>Возможность самостоятельно менять материалы</small></span>
+                        <b>+ 2 000 ₽</b>
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="feature" value="analytics">
+                        <span><strong>Аналитика</strong><small>Подключение счётчиков и основных событий</small></span>
+                        <b>+ 500 ₽</b>
+                    </label>
+                </fieldset>
+
+                <fieldset class="field-group">
+                    <legend>Срок запуска</legend>
+                    <div class="segmented">
+                        <label><input type="radio" name="deadline" value="standard" checked><span>Обычный</span></label>
+                        <label><input type="radio" name="deadline" value="fast"><span>Быстрый</span></label>
+                        <label><input type="radio" name="deadline" value="urgent"><span>Срочный</span></label>
+                    </div>
+                </fieldset>
+            </form>
+
+            <aside class="panel result-panel" aria-live="polite">
+                <p class="result-label">ПРЕДВАРИТЕЛЬНАЯ ОЦЕНКА</p>
+                <p class="price" id="total-price">3 600 ₽</p>
+                <p class="duration" id="duration">Ориентировочный срок: 4–6 дней</p>
+
+                <div class="breakdown">
+                    <h2>Что входит</h2>
+                    <ul id="breakdown-list"></ul>
+                </div>
+
+                <p class="note">Это ориентировочный расчёт. Итог зависит от материалов, сложности дизайна и интеграций.</p>
+                <button class="primary-button" id="copy-button" type="button">Скопировать расчёт</button>
+                <button class="text-button" id="reset-button" type="button">Сбросить параметры</button>
+                <p class="copy-status" id="copy-status" role="status"></p>
+            </aside>
+        </section>
+
+        <footer>
+            <p>Учебный проект для портфолио Nikita.dev · Расчёт не является публичной офертой.</p>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
